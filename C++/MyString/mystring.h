@@ -3,15 +3,28 @@
 
 #include <string>
 
+
+/**
+ * This class should represent a string, i.e. a sequence of characters.
+ * You should provide your implementation for ALL the methods below,
+ * but feel free to add more if you want.
+ *
+ * Reminder: You are NOT allowed to use string class as a private
+ * field.
+ */
 class MyString {
 	private:
-		const char *str;
+		//put your private fields here
+		
+	protected:
+		//put your protected fields here
 		
 	public:
 		//constructors
 		MyString();
-		MyString(char *ch);
 		MyString(std::string otherStr);
+		
+		//add other constructors if you want to
 		
 		int length();
 		char charAt(int index);
@@ -23,7 +36,8 @@ class MyString {
 		MyString replace(char oldChar, char newChar);
 		const char* toCharArray();
 		
-		MyString operator+(MyString otherString);
+		MyString operator+(MyString mystr2);
+		//overload other operators if you want to
 		
 		void display();
 };
