@@ -22,3 +22,7 @@ db.bulkInsert(table, listOfValues);
 The `Main.java` file is the main class of the project, where you should test the methods implemented at the `DbHelper.java`
 
 Compiling and running the code is similiar to [this other application](https://github.com/thingslab/Challenges/tree/master/Java/MyString#compilation-and-running-the-code)
+
+##Submitting your code
+
+[Here](https://github.com/thingslab/Challenges#submitting-your-code) you can check how to submit your code when you finish.
