@@ -7,7 +7,7 @@ The exercises are divided by language, and we provided exercises for:
 - [C++](https://github.com/thingslab/Challenges/tree/master/C%2B%2B)
 - [C#](https://github.com/thingslab/Challenges/tree/master/C%23/)
 - [Java](https://github.com/thingslab/Challenges/tree/master/Java)
-- [Javascript](https://github.com/thingslab/Challenges/tree/master/JavaScript)
+- [Javascript](https://github.com/thingslab/Challenges/tree/master/Javascript/)
 - [PHP](https://github.com/thingslab/Challenges/tree/master/PHP)
 
 ##Submitting your code
