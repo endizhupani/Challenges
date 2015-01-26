@@ -17,4 +17,5 @@ java cc/thingslab/exercise/java/Main
 ```
 
 ##Submitting your code
-Since this repository will only serve as a skeleton for some exercises, don't bother opening any Pull requests. Instead, fork this repository, write your code, and in the end just ping at our email (thingslabtirana@gmail.com) by sending the URL of your repository.
+
+[Here](https://github.com/thingslab/Challenges#submitting-your-code) you can check how to submit your code when you finish.
