@@ -15,3 +15,7 @@ This will compile the code for you. Then, you can run it (from the `src` directo
 ```bash
 Main.exe
 ```
+
+##Submitting your code
+
+[Here](https://github.com/thingslab/Challenges#submitting-your-code) you can check how to submit your code when you finish.
