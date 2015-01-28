@@ -1,6 +1,6 @@
 #README
 
-This exercise is supposed to show the connection of a Java program with Database. You can use [Postgre SQL](http://www.postgresql.org/) (or a compatible with that) or even [MySQL](http://www.mysql.com/).
+This exercise is supposed to show the connection of a Java program with Database. You can use [MySQL](http://www.mysql.com/) as a RDBMS.
 
 ##Classes and methods to implement
 The most important class to implement is `DbHelper.java`, which is the Java class that will commit all the actions with database. It should contain methods like:
@@ -20,6 +20,8 @@ db.bulkInsert(table, listOfValues);
 - The `bulkInsert(table, listOfValues)` method should insert a list of values in a specified table.
 
 The `Main.java` file is the main class of the project, where you should test the methods implemented at the `DbHelper.java`
+
+Also, it would be better if you normalize the database created.
 
 Compiling and running the code is similiar to [this other application](https://github.com/thingslab/Challenges/tree/master/Java/MyString#compilation-and-running-the-code)
 
