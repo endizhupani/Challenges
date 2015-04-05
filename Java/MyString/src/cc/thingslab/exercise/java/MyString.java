@@ -1,5 +1,5 @@
 package cc.thingslab.exercise.java;
-
+import java.util.ArrayList;
 /**
  * This class should represent a string, i.e. a sequence of characters.
  * You should provide your implementation for ALL the methods below,
@@ -14,7 +14,7 @@ public class MyString {
      * Empty constructor
      */
     public MyString() {
-        //TODO: implement this constructor
+       string = new ArrayList<Character>();
     }
 
     /**
@@ -22,18 +22,21 @@ public class MyString {
      * @param str The String object passed as parameter
      */
     public MyString(String str) {
-        //TODO: implement this constructor
+        string = new ArrayList <Character>();
+        for (char c: str.toCharArray())
+        {
+        	string.add(c);
+        }
     }
 
     //Add other constructors if you want
 
     /**
      * This method should return the length of the string
-     * @return Lenght of string
+     * @return Length of string
      */
     public int length() {
-        //TODO: implement this method
-        return -1;
+        return string.size();
     }
 
     /**
@@ -42,8 +45,9 @@ public class MyString {
      * @return The char at index given
      */
     public char charAt(int index) {
-        //TODO: implement this method
-        return '\0';
+        if (index <string.size())
+        	return string.get(index);
+        else return '\0';
     }
 
 
@@ -53,7 +57,14 @@ public class MyString {
      * @return True if the strings are equal, otherwise false
      */
     public boolean equals(MyString myString) {
-        //TODO: implement this method
+        if (string.size() == myString.length())
+        {
+        	for (int i=0; i < string.size(); i++)
+        		if (string.get(i) != myString.charAt(i))
+        			return false;
+        	return true;
+        }
+        else
         return false;
     }
 
@@ -64,7 +75,14 @@ public class MyString {
      * @return True if the strings are equal, otherwise false
      */
     public boolean equals(String str) {
-        //TODO: implement this method
+    	if (string.size() == str.length())
+        {
+        	for (int i=0; i < string.size(); i++)
+        		if (string.get(i) != str.charAt(i))
+        			return false;
+        	return true;
+        }
+        else
         return false;
     }
 
@@ -75,8 +93,7 @@ public class MyString {
      * @return The index (0 based) of the character, or -1 if the char is not found
      */
     public int indexOf(char ch) {
-        //TODO: implement this method
-        return -1;
+        return string.indexOf(ch);
     }
 
 
@@ -86,8 +103,11 @@ public class MyString {
      * @return A new string which is the "sum" of two others
      */
     public MyString append(MyString str) {
-        //TODO: implement this method
-        return null;
+        for (int i = 0; i<str.length(); i++)
+        {
+        	string.add(str.charAt(i));
+        }
+        return new MyString(toString());
     }
 
 
@@ -99,8 +119,14 @@ public class MyString {
      * @return The specified subsequence
      */
     public MyString subSequence(int from, int to) {
-        //TODO: implement this method
+    	String sub = "";
+        if (from < 0 || to > string.size())
         return null;
+        else 
+        	for(int i = from;i < to; i++){
+        	sub += string.get(i);
+        	}
+        return new MyString(sub);  	
     }
 
 
@@ -112,8 +138,12 @@ public class MyString {
      * @return The resulting string
      */
     public MyString replace(char oldChar, char newChar) {
-        //TODO: implement this method
-        return null;
+    	for (int i = 0; i <string.size(); i++) 
+    	if ( string.get(i)==oldChar){
+    		string.remove(i);
+    		string.add(i,newChar);
+    	}
+        return new MyString(toString());
     }
 
 
@@ -122,8 +152,10 @@ public class MyString {
      * @return The resulting character array
      */
     public char[] toCharArray() {
-        //TODO: implement this method
-        return null;
+    	char [] charArray = new char [string.size()];
+        for (int i =0;i<= string.size();i++)
+        	charArray[i]=string.get(i);
+        return charArray;
     }
 
 
@@ -133,8 +165,11 @@ public class MyString {
      */
     @Override
     public String toString() {
-        //TODO: implement this method
-        return null;
+        String str = "";
+        for(char c:string)
+        	str+=c;
+        return str;
     }
+    private ArrayList <Character> string;
 
 }
