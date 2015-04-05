@@ -1,5 +1,4 @@
 package cc.thingslab.exercise.java;
-import java.util.ArrayList;
 /**
  * This class should represent a string, i.e. a sequence of characters.
  * You should provide your implementation for ALL the methods below,
@@ -14,7 +13,7 @@ public class MyString {
      * Empty constructor
      */
     public MyString() {
-       string = new ArrayList<Character>();
+       string = new char[size];
     }
 
     /**
@@ -22,10 +21,11 @@ public class MyString {
      * @param str The String object passed as parameter
      */
     public MyString(String str) {
-        string = new ArrayList <Character>();
-        for (char c: str.toCharArray())
+        size = str.length();
+        string = new char[size];
+        for (int i = 0; i <size; i++)
         {
-        	string.add(c);
+        	string [i] = str.charAt(i);
         }
     }
 
@@ -36,7 +36,7 @@ public class MyString {
      * @return Length of string
      */
     public int length() {
-        return string.size();
+        return size;
     }
 
     /**
@@ -45,8 +45,8 @@ public class MyString {
      * @return The char at index given
      */
     public char charAt(int index) {
-        if (index <string.size())
-        	return string.get(index);
+        if (index <size)
+        	return string[index];
         else return '\0';
     }
 
@@ -57,10 +57,10 @@ public class MyString {
      * @return True if the strings are equal, otherwise false
      */
     public boolean equals(MyString myString) {
-        if (string.size() == myString.length())
+        if (size == myString.length())
         {
-        	for (int i=0; i < string.size(); i++)
-        		if (string.get(i) != myString.charAt(i))
+        	for (int i=0; i < size; i++)
+        		if (string[i] != myString.charAt(i))
         			return false;
         	return true;
         }
@@ -75,10 +75,10 @@ public class MyString {
      * @return True if the strings are equal, otherwise false
      */
     public boolean equals(String str) {
-    	if (string.size() == str.length())
+    	if (size == str.length())
         {
-        	for (int i=0; i < string.size(); i++)
-        		if (string.get(i) != str.charAt(i))
+        	for (int i=0; i < size; i++)
+        		if (string[i] != str.charAt(i))
         			return false;
         	return true;
         }
@@ -93,7 +93,15 @@ public class MyString {
      * @return The index (0 based) of the character, or -1 if the char is not found
      */
     public int indexOf(char ch) {
-        return string.indexOf(ch);
+    	int index = -1;
+    	for (int i = 0; i<size; i++)
+    	{
+    		if (string[i] == ch){
+    		index = i;
+    		return index;
+    		}
+    	}
+        return index;
     }
 
 
@@ -103,11 +111,7 @@ public class MyString {
      * @return A new string which is the "sum" of two others
      */
     public MyString append(MyString str) {
-        for (int i = 0; i<str.length(); i++)
-        {
-        	string.add(str.charAt(i));
-        }
-        return new MyString(toString());
+    	return new MyString(toString()+str.toString());
     }
 
 
@@ -119,14 +123,15 @@ public class MyString {
      * @return The specified subsequence
      */
     public MyString subSequence(int from, int to) {
-    	String sub = "";
-        if (from < 0 || to > string.size())
+        if (from < 0 || to > size)
         return null;
-        else 
+        else{ 
+        	String sub = "";
         	for(int i = from;i < to; i++){
-        	sub += string.get(i);
+        	sub += string[i];
         	}
-        return new MyString(sub);  	
+        	return new MyString(sub); 
+        } 	
     }
 
 
@@ -138,10 +143,9 @@ public class MyString {
      * @return The resulting string
      */
     public MyString replace(char oldChar, char newChar) {
-    	for (int i = 0; i <string.size(); i++) 
-    	if ( string.get(i)==oldChar){
-    		string.remove(i);
-    		string.add(i,newChar);
+    	for (int i = 0; i <size; i++){
+    	if (string [i] == oldChar)
+    		string[i] = newChar;
     	}
         return new MyString(toString());
     }
@@ -152,10 +156,7 @@ public class MyString {
      * @return The resulting character array
      */
     public char[] toCharArray() {
-    	char [] charArray = new char [string.size()];
-        for (int i =0;i<= string.size();i++)
-        	charArray[i]=string.get(i);
-        return charArray;
+        return string;
     }
 
 
@@ -170,6 +171,6 @@ public class MyString {
         	str+=c;
         return str;
     }
-    private ArrayList <Character> string;
-
+    private char [] string;
+    private int size =0;
 }
